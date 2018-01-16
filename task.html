@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="UTF-8">
+    <title>Training</title>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/directive.js"></script>
+    <script src="js/formControll.js"></script>
+    <script src="js/sendControll.js"></script>
+
+</head>
+<body ng-controller="Control">
+<header>
+    <div class="wrapper">
+        <h1>Your order for 10 sec only!</h1>
+    </div>
+</header>
+<div class="information">
+    <label for="name"><span>Type your name </span><input required type="text" name="name" ng-model="newMeal.name" id="name"></label>
+    <label for="tableName"><span> Table number </span><input required type="text" name="tableName" ng-model="newMeal.table" id="tableName"></label>
+    <span>Choose your first meal</span>
+    <select ng-model="newMeal.meal1">
+    	<option value="">Select meal</option>
+        <option value="Soup">Soup</option>
+        <option>Borshch</option>
+        <option>Bograch</option>
+        <option>Fish soup</option>
+    </select>
+    <span>Choose your general meal</span>
+    <select ng-model="newMeal.meal2">
+    	<option value="">Select meal</option>
+        <option >Potato and meat</option>
+        <option>Vegetables and meat</option>
+        <option>Chicken</option>
+        <option>French Fries</option>
+    </select>
+    <button ng-click="add()">SUBMIT</button>
+</div>
+<div class="table_wraper">
+    <table>
+    <caption>Kitchen</caption>
+   <thead>
+   <tr>
+       <td>Name</td>
+       <td>Table</td>
+       <td>First Meal</td>
+       <td>Second Meal</td>
+       <td>Progress</td>
+       <td>Done</td>
+       <td>Delete order</td>
+   </tr>
+   </thead>
+    <tr ng-repeat="item in list">
+        <td>{{item.name}}</td>
+        <td>{{item.table}}</td>
+        <td>{{item.meal1}}</td>
+        <td>{{item.meal2}}</td>
+        <td>{{item.timer}}</td>
+        <td><img ng-show="!item.timer" src="check-mark.svg" width="20" height="20"></td>
+        <td><button ng-click="clean()">Delete Order</button></td>
+    </tr>
+    </table>
+    <div id="container1" class="black" ng-show="visibility()"></div>
+    <div id="container2" class="black" ng-show="visibility()"></div>
+</div>
+
+<div class="delete">
+</div>
+<div class="image"></div>
+<form ng-controller="formControll">
+<input type="text" ng-model="myFactory.name">
+    <span>{{myFactory.name}}</span>
+</form>
+<form ng-controller="sendControll">
+    <input type="text">
+    <span>{{myFactory.name}}</span>
+</form>
+</body>
+</html>

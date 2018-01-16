@@ -1,0 +1,54 @@
+.wrapper{
+    display:flex;
+    justify-content: center;
+}
+body{
+    color:slategrey;
+    font-family: Pristina;
+}
+input{
+    cursor:pointer;
+}
+span{
+    font-size: 25px;
+}
+.information{
+    display:flex;
+    justify-content: space-between;
+}
+table{
+    border: darkolivegreen 3px solid;
+    width:300px;
+    text-align: center;
+    font-size:20px;
+    background-color: darkkhaki ;
+}
+
+thead tr {
+    background-color: darkolivegreen;
+    color:white;
+}
+.delete{
+    margin-top:20px;
+}
+.black{
+    width:400px;
+    height:300px;
+}
+.table_wraper{
+    display:flex;
+    justify-content: space-around;
+}
+.image{
+    background-image: url("../images/food.png");
+   background-size: contain;
+    position: fixed;
+    bottom: 0;
+    right:0;
+    width:200px;
+    height:200px;
+    z-index:-10;
+}
+#done{
+    display:none;
+}
